@@ -1,53 +1,70 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playing by the Rules — Workshop Exemplar</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans)}
-.wrap{padding:1.5rem 2.5rem;max-width:860px;margin:0 auto}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f9f7f4;color:#1a1a1a;line-height:1.7}
+.wrap{padding:2rem 2.5rem;max-width:860px;margin:0 auto}
+.site-header{background:#fff;border-bottom:2px solid #D97C2B;padding:1rem 2.5rem;margin-bottom:0}
+.site-header-inner{max-width:860px;margin:0 auto;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.site-title{font-size:16px;font-weight:500;color:#1a1a1a}
+.site-sub{font-size:13px;color:#888}
 .tabs{display:flex;gap:0;border-bottom:2px solid #D97C2B;margin-bottom:1.75rem;flex-wrap:wrap}
-.tab{padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-bottom:none;background:var(--color-background-secondary);color:var(--color-text-secondary);border-radius:var(--border-radius-md) var(--border-radius-md) 0 0;margin-right:4px;transition:all 0.15s}
-.tab:hover{background:var(--color-background-primary);color:var(--color-text-primary)}
-.tab.active{background:var(--color-background-primary);color:#D97C2B;border-bottom:2px solid var(--color-background-primary);margin-bottom:-2px;font-weight:500}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #e0ddd8;border-bottom:none;background:#f2efe9;color:#666;border-radius:6px 6px 0 0;margin-right:4px;transition:all 0.15s}
+.tab:hover{background:#fff;color:#1a1a1a}
+.tab.active{background:#fff;color:#D97C2B;border-bottom:2px solid #fff;margin-bottom:-2px;font-weight:500}
 .panel{display:none}
 .panel.active{display:block}
-h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #D97C2B}
-h3{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:1.5rem 0 0.6rem}
-h4{font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:1.25rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em}
-p{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:0.85rem}
+h2{font-size:18px;font-weight:500;color:#1a1a1a;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #D97C2B}
+h3{font-size:15px;font-weight:500;color:#1a1a1a;margin:1.5rem 0 0.6rem}
+h4{font-size:12px;font-weight:500;color:#888;margin:1.25rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.05em}
+p{font-size:14px;line-height:1.8;color:#1a1a1a;margin-bottom:0.85rem}
 ul,ol{padding-left:1.4rem;margin-bottom:0.85rem}
-li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:0.3rem}
-.bq{border-left:3px solid #D97C2B;padding:0.75rem 1.25rem;margin:1.25rem 0;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
-.bq p{margin:0;font-size:14px;font-style:italic;line-height:1.8;color:var(--color-text-primary)}
-.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);margin-right:4px}
+li{font-size:14px;line-height:1.8;color:#1a1a1a;margin-bottom:0.3rem}
+.bq{border-left:3px solid #D97C2B;padding:0.75rem 1.25rem;margin:1.25rem 0;background:#fdf6ee;border-radius:0 6px 6px 0}
+.bq p{margin:0;font-size:14px;font-style:italic;line-height:1.8;color:#1a1a1a}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:5px;margin-right:4px}
 .badge-new{background:#D97C2B22;color:#a05a1a}
-.badge-comp{background:var(--color-background-info);color:var(--color-text-info)}
-.chat-scroll{max-height:540px;overflow-y:auto;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;background:var(--color-background-secondary)}
+.chat-scroll{max-height:540px;overflow-y:auto;border:1px solid #e0ddd8;border-radius:10px;padding:1.25rem;background:#f9f7f4}
 .msg{margin-bottom:1.1rem;display:flex;gap:12px;align-items:flex-start}
-.msg-label{font-size:11px;font-weight:500;min-width:52px;margin-top:3px;padding:3px 7px;border-radius:var(--border-radius-md);text-align:center;flex-shrink:0}
+.msg-label{font-size:11px;font-weight:500;min-width:52px;margin-top:3px;padding:3px 7px;border-radius:5px;text-align:center;flex-shrink:0}
 .msg-chris .msg-label{background:#D97C2B22;color:#a05a1a}
-.msg-claude .msg-label{background:var(--color-background-info);color:var(--color-text-info)}
-.msg-body{font-size:13px;line-height:1.7;color:var(--color-text-primary);flex:1}
-.aside-box{background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin:1rem 0}
-.aside-box h3{color:var(--color-text-warning);margin-top:0}
-.aside-box p,.aside-box li{color:var(--color-text-primary)}
-.opt-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.1rem 1.4rem;margin-bottom:1.1rem;background:var(--color-background-primary)}
+.msg-claude .msg-label{background:#e8f0fb;color:#3a6bc9}
+.msg-body{font-size:13px;line-height:1.7;color:#1a1a1a;flex:1}
+.aside-box{background:#fff8e6;border:1px solid #f5d98a;border-radius:10px;padding:1.25rem 1.5rem;margin:1rem 0}
+.aside-box h3{color:#9a6e00;margin-top:0}
+.opt-card{border:1px solid #e0ddd8;border-radius:10px;padding:1.1rem 1.4rem;margin-bottom:1.1rem;background:#fff}
 .opt-card.featured{border:2px solid #D97C2B}
-.opt-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:0.6rem;display:flex;align-items:center;gap:8px}
-.rec-badge{font-size:11px;padding:2px 8px;background:#D97C2B22;color:#a05a1a;border-radius:var(--border-radius-md)}
-.prompt-list{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
+.opt-title{font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:0.6rem;display:flex;align-items:center;gap:8px}
+.rec-badge{font-size:11px;padding:2px 8px;background:#D97C2B22;color:#a05a1a;border-radius:5px}
+.prompt-list{background:#f2efe9;border-radius:6px;padding:0.85rem 1.1rem;margin:0.85rem 0}
 .prompt-list li{font-size:13px;font-style:italic;margin-bottom:0.5rem}
-.comp-row{display:flex;align-items:flex-start;gap:12px;padding:0.6rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.comp-row{display:flex;align-items:flex-start;gap:12px;padding:0.6rem 0;border-bottom:1px solid #e0ddd8}
 .comp-row:last-child{border-bottom:none}
 .comp-num{font-size:12px;font-weight:500;min-width:80px;color:#D97C2B;padding-top:2px;flex-shrink:0}
-.comp-text{font-size:13px;line-height:1.65;color:var(--color-text-primary)}
-.section-rule{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.5rem 0}
+.comp-text{font-size:13px;line-height:1.65;color:#1a1a1a}
+.section-rule{border:none;border-top:1px solid #e0ddd8;margin:1.5rem 0}
 .aim-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:0.6rem}
 .aim-num{font-size:13px;font-weight:500;color:#D97C2B;min-width:22px;flex-shrink:0}
-.aim-text{font-size:14px;line-height:1.75;color:var(--color-text-primary)}
-.note-box{background:var(--color-background-info);border:0.5px solid var(--color-border-info);border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
-.note-box p{font-size:13px;margin:0;color:var(--color-text-primary);line-height:1.7}
-.acc-note{background:#D97C2B11;border:0.5px solid #D97C2B66;border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
-.acc-note p{font-size:13px;margin:0;color:var(--color-text-primary);line-height:1.7}
+.aim-text{font-size:14px;line-height:1.75;color:#1a1a1a}
+.note-box{background:#eef4fd;border:1px solid #b8d0f5;border-radius:6px;padding:0.85rem 1.1rem;margin:0.85rem 0}
+.note-box p{font-size:13px;margin:0;color:#1a1a1a;line-height:1.7}
+.acc-note{background:#fdf6ee;border:1px solid #e8c99a;border-radius:6px;padding:0.85rem 1.1rem;margin:0.85rem 0}
+.acc-note p{font-size:13px;margin:0;color:#1a1a1a;line-height:1.7}
+.footer{margin-top:3rem;padding-top:1rem;border-top:1px solid #e0ddd8;font-size:12px;color:#aaa;text-align:center}
 </style>
+</head>
+<body>
+
+<div class="site-header">
+  <div class="site-header-inner">
+    <span class="site-title">Activity Redesign Exemplar</span>
+    <span class="site-sub">HONR 1010 · The Episteme Arcade · Workshop Resource</span>
+  </div>
+</div>
 
 <div class="wrap">
 <div class="tabs">
@@ -57,6 +74,7 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
   <div class="tab" onclick="showTab(3)">Redesigned activity</div>
 </div>
 
+<!-- TAB 1: ORIGINAL -->
 <div id="p0" class="panel active">
 <h2>The Arena: Playing by the rules — original</h2>
 <p>Students will use this scene to connect everyday media experiences with the course's big questions about information systems, power, and how we are formed by what we consume and create. This fits especially well in The Arena, where students practice perspective-taking and encounter difference.</p>
@@ -79,12 +97,13 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
 <h4>Peer exchange (optional)</h4>
 <p>Name one place where you see the system differently than a classmate does, and ask a genuine question that invites them to think further. Aim for respectful engagement, intellectual humility, and curiosity.</p>
 <hr class="section-rule">
-<p style="font-size:13px;color:var(--color-text-secondary)">Links: Trailer — youtu.be/R32qWdOWrTo | Clip — youtu.be/dDNoXGUtI8Q</p>
+<p style="font-size:13px;color:#888">Links: Trailer — youtu.be/R32qWdOWrTo | Clip — youtu.be/dDNoXGUtI8Q</p>
 </div>
 
+<!-- TAB 2: DIALOGUE -->
 <div id="p1" class="panel">
 <h2>Design dialogue — verbatim</h2>
-<p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1.25rem">The following is the complete conversation between Chris Rosser and Claude that produced the redesigned activity. It is offered as a model of AI-assisted activity redesign in practice — including the unplanned but generative detour into accessibility.</p>
+<p style="font-size:13px;color:#888;margin-bottom:1.25rem">The following is the complete conversation between Chris Rosser and Claude that produced the redesigned activity. It is offered as a model of AI-assisted activity redesign in practice — including the unplanned but generative detour into accessibility.</p>
 <div class="chat-scroll">
 <div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Claude, good morning! As an example for a workshop with faculty on redesigning learning activities with AI and accessibility in mind, I'd like to use the activity we created called "Playing by the Rules." I'm hoping we can generally follow the moves there and brainstorm ways we might incorporate an AI option. We'll need to rearticulate a few learning aims that connect with the Core AI Literacy Competencies. And we want to ensure the activity redesign follows best practices for digital accessibility, specifically WCAG 2.1 (levels A and AA). We'd also like to incorporate Universal Design for Learning guidelines. I'd like to begin by brainstorming the kind of options that might create a meaningful learning experience with AI in this activity. What do you think?</span></div>
 <div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">Good morning! Yes, this makes perfect sense — and what a smart choice for a workshop example. "Playing by the Rules" is already doing a lot of sophisticated epistemic work (formation, power, systems thinking, transepistemic curiosity), which means there's genuine conceptual richness to mine when we add an AI layer — not just novelty.<br><br>The activity already contains a quietly perfect AI angle that hasn't been named yet. The "Your own world" prompt includes <em>AI recommender systems</em> right there alongside Uber ratings. The redesign could make that parallel explicit and live.<br><br><strong>Option 1: AI as System Analyst (pre-writing)</strong> — structured dialogue to map the Nosedive system against a real system before writing.<br><strong>Option 2: AI as Formation Mirror (Socratic)</strong> — after drafting, share reflection with AI: "What am I not yet seeing about how this system is forming me?"<br><strong>Option 3: AI as Character Inhabitor (role-play)</strong> — dialogue with the protagonist or truck driver as a character.<br><strong>Option 4: AI as the System Itself (meta)</strong> — interact with AI as if it were the rating system; reflect on how that felt.<br><br>On UDL: the strongest redesigns let students choose when to use AI. On WCAG 2.1: the two YouTube links are the primary accessibility concern I'd want to address regardless of the AI redesign.</span></div>
@@ -99,6 +118,7 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
 </div>
 </div>
 
+<!-- TAB 3: ACCESSIBILITY -->
 <div id="p2" class="panel">
 <h2>Accessibility: the necessary detour</h2>
 <div class="aside-box">
@@ -123,6 +143,7 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
 <div class="note-box"><p>The redesigned activity includes a written scene description as an alternative entry point, a Canvas Studio captioning note, and a reference to YouDescribe for audio description — all addressed directly in the Accessibility Note.</p></div>
 </div>
 
+<!-- TAB 4: REDESIGNED -->
 <div id="p3" class="panel">
 <h2>The Arena: Playing by the rules — redesigned</h2>
 <h3>Description</h3>
@@ -151,7 +172,7 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
 <p><strong>System of thinking:</strong> What "rules of the game" seem to govern everyday life in the Nosedive world? How do ratings, devices, and interfaces function as an information system that tells people what — and who — has value?</p>
 <p><strong>Formation and consequences:</strong> Choose one character. How has this system formed their desires, fears, or sense of self? Where do you see harm or flourishing, and for whom?</p>
 <p><strong>Your own world:</strong> Identify one system you participate in (social media, course evaluations, Uber/Lyft ratings, follower counts, academic metrics, or AI recommender systems). In what ways do you willingly inhabit it, and in what ways do you feel pushed or pressured? How might this system be forming you — your attention, your relationships, your sense of what "counts"?</p>
-<p style="font-size:13px;color:var(--color-text-secondary)">You are encouraged to reference specific details from the clip — dialogue, gestures, camera shots, colors — to support your claims.</p>
+<p style="font-size:13px;color:#888">You are encouraged to reference specific details from the clip — dialogue, gestures, camera shots, colors — to support your claims.</p>
 <h4>Step 3 – Deepen your reflection</h4>
 <p>After completing your post, choose one of the following options:</p>
 <div class="opt-card">
@@ -193,13 +214,15 @@ li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:
 <h3>Additional resources</h3>
 <ul>
 <li>Trailer (captioned in Canvas Studio)</li>
-<li>Clip — youtu.be/dDNoXGUtI8Q</li>
+<li>Clip — <a href="https://youtu.be/dDNoXGUtI8Q" target="_blank">youtu.be/dDNoXGUtI8Q</a></li>
 <li>Written scene description — available in Canvas</li>
-<li>YouDescribe audio description — youDescribe.org</li>
-<li>WCAG 2.1 guidelines — w3.org/TR/WCAG21</li>
-<li>UDL guidelines — udlguidelines.cast.org</li>
+<li>YouDescribe audio description — <a href="https://youDescribe.org" target="_blank">youDescribe.org</a></li>
+<li>WCAG 2.1 guidelines — <a href="https://www.w3.org/TR/WCAG21/" target="_blank">w3.org/TR/WCAG21</a></li>
+<li>UDL guidelines — <a href="https://udlguidelines.cast.org/" target="_blank">udlguidelines.cast.org</a></li>
 </ul>
 </div>
+
+<div class="footer">HONR 1010 · The Episteme Arcade · Chris Rosser, Oklahoma State University</div>
 </div>
 
 <script>
@@ -208,3 +231,5 @@ function showTab(i){
   document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',i===j));
 }
 </script>
+</body>
+</html>
