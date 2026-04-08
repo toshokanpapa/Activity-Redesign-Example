@@ -2,49 +2,51 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-sans)}
-.wrap{padding:1rem 0}
-.tabs{display:flex;gap:0;border-bottom:2px solid #D97C2B;margin-bottom:1.5rem;flex-wrap:wrap}
-.tab{padding:10px 16px;font-size:13px;font-weight:500;cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-bottom:none;background:var(--color-background-secondary);color:var(--color-text-secondary);border-radius:var(--border-radius-md) var(--border-radius-md) 0 0;margin-right:4px;transition:all 0.15s}
+.wrap{padding:1.5rem 2.5rem;max-width:860px;margin:0 auto}
+.tabs{display:flex;gap:0;border-bottom:2px solid #D97C2B;margin-bottom:1.75rem;flex-wrap:wrap}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;cursor:pointer;border:0.5px solid var(--color-border-tertiary);border-bottom:none;background:var(--color-background-secondary);color:var(--color-text-secondary);border-radius:var(--border-radius-md) var(--border-radius-md) 0 0;margin-right:4px;transition:all 0.15s}
 .tab:hover{background:var(--color-background-primary);color:var(--color-text-primary)}
 .tab.active{background:var(--color-background-primary);color:#D97C2B;border-bottom:2px solid var(--color-background-primary);margin-bottom:-2px;font-weight:500}
 .panel{display:none}
 .panel.active{display:block}
 h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #D97C2B}
-h3{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:1.25rem 0 0.5rem}
-h4{font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:1rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em}
-p{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:0.75rem}
-ul,ol{padding-left:1.25rem;margin-bottom:0.75rem}
-li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:0.3rem}
-.bq{border-left:3px solid #D97C2B;padding:0.6rem 1rem;margin:1rem 0;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
-.bq p{margin:0;font-size:14px;font-style:italic;color:var(--color-text-primary)}
+h3{font-size:15px;font-weight:500;color:var(--color-text-primary);margin:1.5rem 0 0.6rem}
+h4{font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:1.25rem 0 0.4rem;text-transform:uppercase;letter-spacing:0.04em}
+p{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:0.85rem}
+ul,ol{padding-left:1.4rem;margin-bottom:0.85rem}
+li{font-size:14px;line-height:1.8;color:var(--color-text-primary);margin-bottom:0.3rem}
+.bq{border-left:3px solid #D97C2B;padding:0.75rem 1.25rem;margin:1.25rem 0;background:var(--color-background-secondary);border-radius:0 var(--border-radius-md) var(--border-radius-md) 0}
+.bq p{margin:0;font-size:14px;font-style:italic;line-height:1.8;color:var(--color-text-primary)}
 .badge{display:inline-block;font-size:11px;font-weight:500;padding:2px 8px;border-radius:var(--border-radius-md);margin-right:4px}
 .badge-new{background:#D97C2B22;color:#a05a1a}
 .badge-comp{background:var(--color-background-info);color:var(--color-text-info)}
-.chat-scroll{max-height:520px;overflow-y:auto;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem;background:var(--color-background-secondary)}
-.msg{margin-bottom:1rem;display:flex;gap:10px;align-items:flex-start}
-.msg-label{font-size:11px;font-weight:500;min-width:52px;margin-top:3px;padding:3px 7px;border-radius:var(--border-radius-md);text-align:center}
+.chat-scroll{max-height:540px;overflow-y:auto;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;background:var(--color-background-secondary)}
+.msg{margin-bottom:1.1rem;display:flex;gap:12px;align-items:flex-start}
+.msg-label{font-size:11px;font-weight:500;min-width:52px;margin-top:3px;padding:3px 7px;border-radius:var(--border-radius-md);text-align:center;flex-shrink:0}
 .msg-chris .msg-label{background:#D97C2B22;color:#a05a1a}
 .msg-claude .msg-label{background:var(--color-background-info);color:var(--color-text-info)}
-.msg-body{font-size:13px;line-height:1.65;color:var(--color-text-primary);flex:1}
-.aside-box{background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:var(--border-radius-lg);padding:1.25rem;margin:1rem 0}
+.msg-body{font-size:13px;line-height:1.7;color:var(--color-text-primary);flex:1}
+.aside-box{background:var(--color-background-warning);border:0.5px solid var(--color-border-warning);border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin:1rem 0}
 .aside-box h3{color:var(--color-text-warning);margin-top:0}
 .aside-box p,.aside-box li{color:var(--color-text-primary)}
-.opt-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-bottom:1rem;background:var(--color-background-primary)}
+.opt-card{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.1rem 1.4rem;margin-bottom:1.1rem;background:var(--color-background-primary)}
 .opt-card.featured{border:2px solid #D97C2B}
-.opt-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+.opt-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:0.6rem;display:flex;align-items:center;gap:8px}
 .rec-badge{font-size:11px;padding:2px 8px;background:#D97C2B22;color:#a05a1a;border-radius:var(--border-radius-md)}
-.prompt-list{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.75rem 1rem;margin:0.75rem 0}
-.prompt-list li{font-size:13px;font-style:italic;margin-bottom:0.4rem}
-.comp-row{display:flex;align-items:flex-start;gap:10px;padding:0.5rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.prompt-list{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
+.prompt-list li{font-size:13px;font-style:italic;margin-bottom:0.5rem}
+.comp-row{display:flex;align-items:flex-start;gap:12px;padding:0.6rem 0;border-bottom:0.5px solid var(--color-border-tertiary)}
 .comp-row:last-child{border-bottom:none}
-.comp-num{font-size:12px;font-weight:500;min-width:80px;color:#D97C2B;padding-top:2px}
-.comp-text{font-size:13px;line-height:1.6;color:var(--color-text-primary)}
-.section-rule{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.25rem 0}
-.aim-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:0.5rem}
-.aim-num{font-size:13px;font-weight:500;color:#D97C2B;min-width:20px}
-.aim-text{font-size:14px;line-height:1.65;color:var(--color-text-primary)}
-.note-box{background:var(--color-background-info);border:0.5px solid var(--color-border-info);border-radius:var(--border-radius-md);padding:0.75rem 1rem;margin:0.75rem 0}
-.note-box p{font-size:13px;margin:0;color:var(--color-text-primary)}
+.comp-num{font-size:12px;font-weight:500;min-width:80px;color:#D97C2B;padding-top:2px;flex-shrink:0}
+.comp-text{font-size:13px;line-height:1.65;color:var(--color-text-primary)}
+.section-rule{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:1.5rem 0}
+.aim-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:0.6rem}
+.aim-num{font-size:13px;font-weight:500;color:#D97C2B;min-width:22px;flex-shrink:0}
+.aim-text{font-size:14px;line-height:1.75;color:var(--color-text-primary)}
+.note-box{background:var(--color-background-info);border:0.5px solid var(--color-border-info);border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
+.note-box p{font-size:13px;margin:0;color:var(--color-text-primary);line-height:1.7}
+.acc-note{background:#D97C2B11;border:0.5px solid #D97C2B66;border-radius:var(--border-radius-md);padding:0.85rem 1.1rem;margin:0.85rem 0}
+.acc-note p{font-size:13px;margin:0;color:var(--color-text-primary);line-height:1.7}
 </style>
 
 <div class="wrap">
@@ -82,29 +84,18 @@ li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:
 
 <div id="p1" class="panel">
 <h2>Design dialogue — verbatim</h2>
-<p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem">The following is the complete conversation between Chris Rosser and Claude that produced the redesigned activity. It is offered as a model of AI-assisted activity redesign in practice — including the unplanned but generative detour into accessibility.</p>
+<p style="font-size:13px;color:var(--color-text-secondary);margin-bottom:1.25rem">The following is the complete conversation between Chris Rosser and Claude that produced the redesigned activity. It is offered as a model of AI-assisted activity redesign in practice — including the unplanned but generative detour into accessibility.</p>
 <div class="chat-scroll">
-
 <div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Claude, good morning! As an example for a workshop with faculty on redesigning learning activities with AI and accessibility in mind, I'd like to use the activity we created called "Playing by the Rules." I'm hoping we can generally follow the moves there and brainstorm ways we might incorporate an AI option. We'll need to rearticulate a few learning aims that connect with the Core AI Literacy Competencies. And we want to ensure the activity redesign follows best practices for digital accessibility, specifically WCAG 2.1 (levels A and AA). We'd also like to incorporate Universal Design for Learning guidelines. I'd like to begin by brainstorming the kind of options that might create a meaningful learning experience with AI in this activity. What do you think?</span></div>
-
 <div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">Good morning! Yes, this makes perfect sense — and what a smart choice for a workshop example. "Playing by the Rules" is already doing a lot of sophisticated epistemic work (formation, power, systems thinking, transepistemic curiosity), which means there's genuine conceptual richness to mine when we add an AI layer — not just novelty.<br><br>The activity already contains a quietly perfect AI angle that hasn't been named yet. The "Your own world" prompt includes <em>AI recommender systems</em> right there alongside Uber ratings. The redesign could make that parallel explicit and live.<br><br><strong>Option 1: AI as System Analyst (pre-writing)</strong> — structured dialogue to map the Nosedive system against a real system before writing.<br><strong>Option 2: AI as Formation Mirror (Socratic)</strong> — after drafting, share reflection with AI: "What am I not yet seeing about how this system is forming me?"<br><strong>Option 3: AI as Character Inhabitor (role-play)</strong> — dialogue with the protagonist or truck driver as a character.<br><strong>Option 4: AI as the System Itself (meta)</strong> — interact with AI as if it were the rating system; reflect on how that felt.<br><br>On UDL: the strongest redesigns let students choose when to use AI. On WCAG 2.1: the two YouTube links are the primary accessibility concern I'd want to address regardless of the AI redesign.</span></div>
-
 <div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Claude, this is great, thank you! I think we like Option 2, the "Socratic" option. But before we continue, let's talk about what you mentioned regarding the accessibility of the video content. One of the videos does not offer closed captioning, and I'm unable to get a transcript. We need to follow WCAG, and since we're using Canvas, we wonder if using Studio in Canvas to create a captioning track might be the best option. I did look for an alternative trailer, but there's not one for this episode. What do you think? Are there other options for ensuring closed captioning and audio description, if needed?</span></div>
-
-<div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">This is exactly the right question to be asking, and it's a good example for the workshop of how accessibility isn't a finishing step — it surfaces real constraints that require real decisions.<br><br>For WCAG 2.1: 1.2.2 (Level A) requires captions; 1.2.3 (Level A) requires either audio description or a full media alternative; 1.2.5 (Level AA) specifically requires audio description. So captions alone get you to Level A; you'd also need to address audio description for full AA.<br><br><strong>On Canvas Studio:</strong> Yes, a reasonable option. Studio's auto-captioning will generate a caption track you can review and correct — and accuracy review is essential. One complication: downloading the YouTube video for re-upload sits in a gray area with respect to copyright even for educational use. Worth a quick check with your copyright office.<br><br><strong>Other tools:</strong> 3Play Media (university-grade, Canvas integration), Rev.com (human-generated captions, per-minute pricing), Verbit (higher-ed focused). For audio description specifically: YouDescribe (free, Smith-Kettlewell Eye Research Institute) lets you add audio descriptions to YouTube videos without downloading anything. WAVE and Canvas's built-in Accessibility Checker can audit the instructions themselves.<br><br>A practical suggestion: a well-crafted written alternative describing the trailer's key content satisfies 1.2.3 immediately. This situation is also a great teaching moment for faculty: the question isn't "can I use this?" but "what do I owe my students, and what's the feasible path?"</span></div>
-
+<div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">This is exactly the right question to be asking, and it's a good example for the workshop of how accessibility isn't a finishing step — it surfaces real constraints that require real decisions.<br><br>For WCAG 2.1: 1.2.2 (Level A) requires captions; 1.2.3 (Level A) requires either audio description or a full media alternative; 1.2.5 (Level AA) specifically requires audio description. So captions alone get you to Level A; you'd also need to address audio description for full AA.<br><br><strong>On Canvas Studio:</strong> Yes, a reasonable option. Studio's auto-captioning will generate a caption track you can review and correct — and accuracy review is essential. One complication: downloading the YouTube video for re-upload sits in a gray area with respect to copyright even for educational use. Worth a quick check with your copyright office.<br><br><strong>Other tools:</strong> 3Play Media (university-grade, Canvas integration), Rev.com (human-generated captions, per-minute pricing), Verbit (higher-ed focused). For audio description specifically: YouDescribe (free, Smith-Kettlewell Eye Research Institute) lets you add audio descriptions to YouTube videos without downloading anything. WAVE and Canvas's built-in Accessibility Checker can audit the instructions themselves.<br><br>A practical suggestion: a well-crafted written alternative describing the trailer's key content satisfies 1.2.3 immediately. This situation is a great teaching moment for faculty: the question isn't "can I use this?" but "what do I owe my students, and what's the feasible path?"</span></div>
 <div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Claude, thank you! I think Studio in Canvas is the best option for now, but I appreciate knowing about these other tools. Let's talk about Option 2. I liked your language about the AI partner as a "reflective surface." That's a nice metaphor, not least for the Nosedive context, where people themselves as well as their devices are all mirrors. What are your thoughts about how to incorporate a "Socratic" reflection here?</span></div>
-
-<div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">The mirror observation is doing real work — and worth leaning into deliberately in the instructions themselves. In Nosedive, the mirrors are always slightly treacherous: they show you a version of yourself the system has already pre-processed. An AI as reflective surface carries exactly that same productive ambiguity.<br><br><strong>Timing matters:</strong> The Socratic option works best <em>after</em> students have written — not before. The sequence preserves their voice as primary.<br><br><strong>The prompts need to be Socratic by design:</strong> "What assumptions am I making that I haven't questioned?" / "What might I be avoiding?" / "Where does my reflection feel most certain? Push back on that." / "If the system I described could speak for itself, what would it say in its own defense?"<br><br><strong>A risk to name:</strong> AI systems tend toward affirming elaboration. Students need to be coached to push back on the AI if it doesn't challenge them. This is itself a meaningful AI literacy moment — Competency 3.1 and 2.4.<br><br><strong>Submission design:</strong> Original reflection (unchanged) + a short follow-on paragraph (~100 words) naming one thing the AI surfaced and whether they agree. This keeps the human voice primary and makes the dialogue assessable.<br><br><strong>The recursive quality is worth naming:</strong> Students will be analyzing a fictional rating system while using an AI — which is itself a socio-technical system trained on patterns — as a mirror. That recursion isn't just thematically elegant; it <em>is</em> the AI literacy content.</span></div>
-
+<div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">The mirror observation is doing real work — and worth leaning into deliberately in the instructions themselves. In Nosedive, the mirrors are always slightly treacherous: they show you a version of yourself the system has already pre-processed. An AI as reflective surface carries exactly that same productive ambiguity.<br><br><strong>Timing matters:</strong> The Socratic option works best <em>after</em> students have written — not before. The sequence preserves their voice as primary.<br><br><strong>The prompts need to be Socratic by design:</strong> "What assumptions am I making that I haven't questioned?" / "What might I be avoiding?" / "Where does my reflection feel most certain? Push back on that." / "If the system I described could speak for itself, what would it say in its own defense?"<br><br><strong>A risk to name:</strong> AI tools tend toward affirming elaboration. Students need to be coached to push back on the AI if it doesn't challenge them. This is itself a meaningful AI literacy moment — Competency 3.1 and 2.4.<br><br><strong>Submission design:</strong> Original reflection (unchanged) + a short follow-on paragraph (~100 words) naming one thing the AI surfaced and whether they agree. This keeps the human voice primary and makes the dialogue assessable.<br><br><strong>The recursive quality is worth naming:</strong> Students will be analyzing a fictional rating system while using an AI — which is itself a socio-technical system — as a mirror. That recursion isn't just thematically elegant; it <em>is</em> the AI literacy content.</span></div>
 <div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">I'd like to go ahead and finish our conversation so that we can provide an example of a redefined artifact for our workshop tomorrow. In answer to your questions: while we'll be tool-agnostic, I think we should name Claude, Perplexity, and ChatGPT as possible interlocutors. I'd like to offer options so that students who do not wish to reflect with AI are able to follow their impulse, but I want to emphasize the potential benefit — not to "help me improve my writing" but as a genuine "mirror" for reflecting more deeply. I'd love to continue playing with the mirror imagery. And "Black Mirror" in some sense conveys what our devices truly are: dark reflecting surfaces for "self." Is there language here we might leverage for instruction?</span></div>
-
 <div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">Charlie Brooker chose "Black Mirror" as his title because that's what any screen looks like when it goes dark: a surface that shows you yourself. That etymology is pedagogically gold — the show isn't just <em>about</em> reflective surfaces; it <em>is</em> one.<br><br>On the dual-option framing: the language needs to honor the asymmetry honestly. Not "two equal paths" but: "You may complete this without an AI partner, and that is a valid choice. However, using an AI as a reflective surface — not to improve your writing, but to surface what you may not yet be seeing — is itself an act of epistemic inquiry."<br><br>The phrase "not to improve your writing" is load-bearing. You might even name the failure mode: <em>"If you find yourself asking the AI to rewrite or polish your reflection, you've stepped out of the mirror and into the salon."</em><br><br>A possible through-line: <em>"Every screen is a black mirror. When it's on, it shows you the world; when it's off, it shows you yourself. In this activity, you've been analyzing how a fictional system of screens forms people — their desires, their fears, their sense of what's possible. Now we're inviting you to use a screen — an AI — as a different kind of mirror: one that reflects your thinking back to you, asks questions your reflection didn't ask, and surfaces what you may have left in the dark."</em></span></div>
-
-<div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Oh, I love this so much! Especially: "If you find yourself asking the AI to rewrite or polish your reflection, you've stepped out of the mirror and into the salon." Yes, Claude, I think we're ready for the revised version draft. But let me suggest where we might end up: since this is an exemplar for a workshop, I wonder if you might create an interactive artifact that offers four elements: 1) the original activity; 2) a verbatim copy of our conversation as a model dialogue; 3) a brief aside noting that our interaction surfaced accessibility issues; and 4) the redesigned activity. This way, I'll have something incredibly useful to share with participants.</span></div>
-
+<div class="msg msg-chris"><span class="msg-label">Chris</span><span class="msg-body">Oh, I love this so much! Especially: "If you find yourself asking the AI to rewrite or polish your reflection, you've stepped out of the mirror and into the salon." Yes, Claude, I think we're ready for the revised version draft. Since this is an exemplar for a workshop, I wonder if you might create an interactive artifact that offers four elements: 1) the original activity; 2) a verbatim copy of our conversation as a model dialogue; 3) a brief aside noting that our interaction surfaced accessibility issues; and 4) the redesigned activity.</span></div>
 <div class="msg msg-claude"><span class="msg-label">Claude</span><span class="msg-body">What a great instinct — showing the <em>process</em> alongside the product is exactly right for a faculty workshop. Participants need to see the thinking, not just the outcome. Building now...</span></div>
-
 </div>
 </div>
 
@@ -134,15 +125,10 @@ li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:
 
 <div id="p3" class="panel">
 <h2>The Arena: Playing by the rules — redesigned</h2>
-
 <h3>Description</h3>
 <p>Charlie Brooker chose "Black Mirror" as his series title because that's what any screen looks like when it goes dark: a surface that shows you yourself. We use our screens as mirrors constantly — to check our appearance, our social standing, our sense of how we're doing. Most of the time the mirror feels helpful, even neutral. <em>Nosedive</em> asks what happens when the mirror doesn't just reflect — but judges, ranks, and ultimately forms who we are allowed to become.</p>
 <p>In this Arena Exploration, you will enter the world of <em>Black Mirror: "Nosedive"</em> to examine how systems of information, ratings, and reputation shape what people see as possible — and who they are allowed to become. In Step 3, you will have the option to use an AI tool as a different kind of mirror: one that reflects your thinking back to you, asks questions your reflection didn't ask, and surfaces what you may have left in the dark.</p>
-
-<div class="note-box" style="border-color:#D97C2B;background:#D97C2B11">
-<p><strong>Accessibility note:</strong> The trailer has been captioned using Canvas Studio and is available with closed captions. A YouDescribe audio description track and a written scene description are also available as alternative entry points. If you encounter any barriers accessing the video content, please contact the instructor. All prompts and instructions are screen-reader compatible.</p>
-</div>
-
+<div class="acc-note"><p><strong>Accessibility note:</strong> The trailer has been captioned using Canvas Studio and is available with closed captions. A YouDescribe audio description track and a written scene description are also available as alternative entry points. If you encounter any barriers accessing the video content, please contact the instructor. All prompts and instructions are screen-reader compatible.</p></div>
 <hr class="section-rule">
 <h3>Learning aims</h3>
 <p>By the end of this activity, Seekers will be able to:</p>
@@ -153,56 +139,41 @@ li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:
 <div class="aim-row"><span class="aim-num">5.</span><span class="aim-text"><span class="badge badge-new">new</span>Engage an AI tool as a collaborative partner in metacognitive reflection, using iterative dialogue to surface unexamined assumptions in their own thinking (AI Literacy Competencies 2.3, 3.1, 3.3).</span></div>
 <div class="aim-row"><span class="aim-num">6.</span><span class="aim-text"><span class="badge badge-new">new</span>Maintain human agency and critical judgment in AI dialogue, recognizing AI outputs as starting points for deeper inquiry rather than conclusions (AI Literacy Competencies 1.2, 2.4).</span></div>
 <div class="aim-row"><span class="aim-num">7.</span><span class="aim-text"><span class="badge badge-new">new</span>Recognize AI systems as socio-technical formations that, like the Nosedive rating system, shape what users see, value, and become (AI Literacy Frame 3).</span></div>
-
 <hr class="section-rule">
 <h4>Time on task</h4>
 <p>60–90 minutes (including video, reflection, and Step 3 option)</p>
-
 <hr class="section-rule">
 <h3>Instructions</h3>
 <div class="bq"><p>Every screen is a black mirror. When it's on, it shows you the world; when it's off, it shows you yourself. In this activity, you've been analyzing how a fictional system of screens forms people — their desires, their fears, their sense of what's possible. In Step 3, we're inviting you to use a screen — an AI — as a different kind of mirror: one that reflects your thinking back to you, asks questions your reflection didn't ask, and surfaces what you may have left in the dark.</p></div>
-
 <h4>Step 1 – Watch</h4>
-<ol>
-<li>Watch the <em>Nosedive</em> trailer (captioned; written scene description available in Canvas)</li>
-<li>Watch the assigned clip in which the protagonist is helped by the truck driver</li>
-</ol>
-
+<ol><li>Watch the <em>Nosedive</em> trailer (captioned; written scene description available in Canvas)</li><li>Watch the assigned clip in which the protagonist is helped by the truck driver</li></ol>
 <h4>Step 2 – Individual reflection post (~200 words)</h4>
-<p>Make one original post that responds to all of the following:</p>
 <p><strong>System of thinking:</strong> What "rules of the game" seem to govern everyday life in the Nosedive world? How do ratings, devices, and interfaces function as an information system that tells people what — and who — has value?</p>
-<p><strong>Formation and consequences:</strong> Choose one character. How has this system formed their desires, fears, or sense of self? Where do you see harm or flourishing, and for whom? How does this connect to our discussions of information, power, and social consequences?</p>
+<p><strong>Formation and consequences:</strong> Choose one character. How has this system formed their desires, fears, or sense of self? Where do you see harm or flourishing, and for whom?</p>
 <p><strong>Your own world:</strong> Identify one system you participate in (social media, course evaluations, Uber/Lyft ratings, follower counts, academic metrics, or AI recommender systems). In what ways do you willingly inhabit it, and in what ways do you feel pushed or pressured? How might this system be forming you — your attention, your relationships, your sense of what "counts"?</p>
 <p style="font-size:13px;color:var(--color-text-secondary)">You are encouraged to reference specific details from the clip — dialogue, gestures, camera shots, colors — to support your claims.</p>
-
 <h4>Step 3 – Deepen your reflection</h4>
 <p>After completing your post, choose one of the following options:</p>
-
 <div class="opt-card">
 <div class="opt-title">Option A — Written reflection only</div>
 <p>Review your post and write a brief follow-up paragraph (75–100 words) naming one question your post left unanswered. What aspect of the system, or of your own participation in it, did you find hardest to articulate? Submit this alongside your original post.</p>
 </div>
-
 <div class="opt-card featured">
 <div class="opt-title">Option B — AI as reflective surface <span class="rec-badge">recommended</span></div>
 <p>You may complete this reflection without an AI partner, and that is a valid and valuable choice. However, we want to name something: using an AI as a reflective surface — not to improve your writing, but to surface what you may not yet be seeing in your own thinking — is itself an act of epistemic inquiry. We encourage you to try it.</p>
 <p>After writing your original post, open a conversation with an AI tool — Claude (claude.ai), Perplexity (perplexity.ai), or ChatGPT (chatgpt.com) — and share your reflection. Then use one or more of the following prompts:</p>
-<div class="prompt-list">
-<ul>
+<div class="prompt-list"><ul>
 <li>"Based on what I've written, what assumptions about this system am I making that I haven't questioned?"</li>
 <li>"What might I be avoiding or not fully seeing about how this system is forming me?"</li>
 <li>"Where does my reflection feel most certain? Push back on that certainty."</li>
 <li>"If the system I described could speak for itself, what would it say in its own defense?"</li>
-</ul>
-</div>
+</ul></div>
 <div class="note-box"><p><strong>A note on agency:</strong> AI tools tend toward affirming elaboration. If the AI only agrees with or expands on what you've already said, push back. Try: "What am I not seeing? What's the strongest objection to my analysis?" Maintaining that pressure is itself part of the exercise — and an important AI literacy skill.</p></div>
 <div class="bq"><p>You are not asking the AI to improve or rewrite your reflection. If you find yourself asking the AI to polish or restructure your writing, you've stepped out of the mirror and into the salon.</p></div>
 <p>After your dialogue, write a brief follow-up paragraph (75–100 words) that names one thing the AI surfaced that you hadn't considered, and whether, on reflection, you agree with it.</p>
 </div>
-
 <h4>Peer exchange (optional for all)</h4>
-<p>You are not required to reply to a classmate's post, but if you do: name one place where you see the system differently, and ask a genuine question that invites them to think further. Aim for respectful engagement, intellectual humility, and curiosity about how others experience similar systems.</p>
-
+<p>You are not required to reply to a classmate's post, but if you do: name one place where you see the system differently, and ask a genuine question that invites them to think further. Aim for respectful engagement, intellectual humility, and curiosity about how others experience similar systems in their lives.</p>
 <hr class="section-rule">
 <h3>Submission</h3>
 <ul>
@@ -210,7 +181,6 @@ li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:
 <li>Your Step 3 follow-up paragraph (~75–100 words)</li>
 <li>If Option B: a brief note (1–2 sentences) indicating which AI tool you used</li>
 </ul>
-
 <hr class="section-rule">
 <h3>AI literacy competency alignment</h3>
 <div class="comp-row"><span class="comp-num">1.2</span><span class="comp-text">Dialogical Recognition — treating AI outputs as starting points for deeper inquiry rather than final answers.</span></div>
@@ -219,28 +189,22 @@ li{font-size:14px;line-height:1.7;color:var(--color-text-primary);margin-bottom:
 <div class="comp-row"><span class="comp-num">3.1</span><span class="comp-text">Dialogical Prompting — crafting effective prompts, asking follow-up questions, iteratively refining dialogue.</span></div>
 <div class="comp-row"><span class="comp-num">3.3</span><span class="comp-text">Collaborative Co-Creation — engaging AI as a partner in knowledge production through ongoing dialogue.</span></div>
 <div class="comp-row"><span class="comp-num">Frame 3</span><span class="comp-text">AI operates within socio-technical systems — connecting the Nosedive rating system to AI recommender systems as parallel formations.</span></div>
-
 <hr class="section-rule">
 <h3>Additional resources</h3>
 <ul>
 <li>Trailer (captioned in Canvas Studio)</li>
-<li>Clip: youtu.be/dDNoXGUtI8Q</li>
+<li>Clip — youtu.be/dDNoXGUtI8Q</li>
 <li>Written scene description — available in Canvas</li>
 <li>YouDescribe audio description — youDescribe.org</li>
 <li>WCAG 2.1 guidelines — w3.org/TR/WCAG21</li>
 <li>UDL guidelines — udlguidelines.cast.org</li>
 </ul>
 </div>
-
 </div>
 
 <script>
 function showTab(i){
-  document.querySelectorAll('.tab').forEach((t,j)=>{
-    t.classList.toggle('active',i===j);
-  });
-  document.querySelectorAll('.panel').forEach((p,j)=>{
-    p.classList.toggle('active',i===j);
-  });
+  document.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  document.querySelectorAll('.panel').forEach((p,j)=>p.classList.toggle('active',i===j));
 }
 </script>
